@@ -1,10 +1,12 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import furts from '../../images/fruts.png';
+import Foods from '../Foods/Foods';
 import './home.css';
 
 const Home = () => {
     return (
+        <>
         <div className='bg-light'>
             <Container className="py-5">
                 <Row>
@@ -23,8 +25,11 @@ const Home = () => {
                         <img className="img-fluid" src={furts} alt="" />
                     </Col>
                 </Row>
-            </Container>
+                
+            </Container>    
         </div>
+        <Foods></Foods>
+        </>
     );
 };
 
