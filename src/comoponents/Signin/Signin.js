@@ -1,9 +1,25 @@
 import React from 'react';
 import { Button, Form,Row,Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './Signin.css';
 
 const Signin = () => {
+    const [signInWithEmailAndPassword, user,error,] = useSignInWithEmailAndPassword(auth);
+    
+    const [signInWithGoogle,user1] = useSignInWithGoogle(auth);
+    const navigate = useNavigate();
+    if(user || user1){
+        navigate('/home')
+    }
+
+    const handelfrom=(event)=>{
+        event.preventDefault();
+        const email= event.target.email.value;
+        const password= event.target.password.value;
+        signInWithEmailAndPassword(email,password);
+    }
     return (
         <div className='w-75 mx-auto mt-4 shadow p-3 mb-5 bg-white rounded'>
             <Row>
@@ -12,15 +28,15 @@ const Signin = () => {
                 </Col>
                 <Col className='mt-5'>
                 <h3 className="text-center level_box">Sign In</h3>
-            <Form className="">
+            <Form onSubmit={handelfrom}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className="level_box">Email Address:</Form.Label>
-                    <Form.Control id="input_box" type="email" placeholder="Enter email" />
+                    <Form.Control name="email" id="input_box" type="email" placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label className="level_box">Password</Form.Label>
-                    <Form.Control id="input_box" type="password" placeholder="Password" />
+                    <Form.Control name="password" id="input_box" type="password" placeholder="Password" />
                 </Form.Group>
                 <p className='level_box'>You have no accout then <Link to='/signup'>Sign Up</Link></p>
                 
@@ -29,7 +45,7 @@ const Signin = () => {
                 </Button>
             </Form>
             <div className="social_auth">
-                <button><img className="google_img" height={40} src="https://www.dlf.pt/png/list/15/155598_google-review-icon-png.png" alt="" /> Google</button>
+                <button onClick={() => signInWithGoogle()}><img className="google_img" height={40} src="https://www.dlf.pt/png/list/15/155598_google-review-icon-png.png" alt="" /> Google</button>
             </div>
                 </Col>
             </Row>
