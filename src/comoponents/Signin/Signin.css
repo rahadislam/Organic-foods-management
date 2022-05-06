@@ -1,0 +1,45 @@
+.level_box{
+    font-weight: 600;
+    color:orange
+}
+#input_box{
+    border: none;
+    border-bottom: 2px solid orange;
+    
+}
+#input_box::placeholder{
+    color: orange;
+    opacity: 0.5;
+    
+}
+#custom_btn{
+    color:black;
+    background-color: orange;
+    border: none;
+    padding: 10px 30px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 1s;
+    
+}
+.social_auth button{
+    margin-top: 20px;
+    border: none;
+    background-color: orange;
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 80px 10px 10px;
+    border-radius: 35px;
+    transition: 1s;
+}
+#custom_btn:hover{
+    background-color: orangered;
+}
+.social_auth button:hover{
+    background-color: orangered;
+}
+.google_img{
+    border-radius: 50%;
+    padding: 0 10px;
+}
