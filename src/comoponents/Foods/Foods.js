@@ -5,7 +5,7 @@ import Food from '../Food/Food';
 const Foods = () => {
     const [foods,setfoods]=useState([]);
     useEffect(()=>{
-        fetch('https://young-gorge-58267.herokuapp.com/services')
+        fetch('http://localhost:5000/foods')
         .then(res=>res.json())
         .then(data=>setfoods(data));
     },[])

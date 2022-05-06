@@ -1,0 +1,42 @@
+.addItems{
+    color: orangered;
+    font-size: 30px;
+    text-align: center;
+    margin: 15px 0;
+    font-weight: 600;
+}
+.add_btn{
+    font-weight: 600;
+    font-size: 20px;
+    background-color: transparent;
+    transition: 0.5s;
+}
+.add_btn:hover{
+    color: wheat;
+    background-color: orangered;
+}
+.add_from input{
+    width: 100%;
+    padding:10px 10px;
+    margin-bottom: 20px;
+    color:orange;
+    border: 2px solid orange;
+    border-radius: 5px;
+}
+.add_from input::placeholder{
+    color:orange;
+    opacity: 0.5;
+}
+.description{
+    height: 120px;
+    width: 100%;
+    padding:10px 10px;
+    margin: 10px 0;
+    color:orange;
+    border: 2px solid orange;
+    border-radius: 5px;
+}
+.description::placeholder{
+    color:orange;
+    opacity: 0.5;
+}
