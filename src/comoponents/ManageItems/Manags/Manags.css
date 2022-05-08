@@ -1,0 +1,14 @@
+.catalog img{
+    border-radius: 10px;
+}
+.delete_btn{
+    border: none;
+    padding: 10px 20px;
+    background-color: orange;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+.delete_btn:hover{
+    background-color: orangered;
+}
