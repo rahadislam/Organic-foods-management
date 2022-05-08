@@ -4,6 +4,7 @@ import Additems from './comoponents/Additems/Additems';
 import Footer from './comoponents/Footer/Footer';
 import Header from './comoponents/Header/Header';
 import Home from './comoponents/Home/Home';
+import ManageItems from './comoponents/ManageItems/ManageItems';
 import PageNotFound from './comoponents/PageNotFound/PageNotFound';
 import RequirdAuth from './comoponents/RequirdAuth/RequirdAuth';
 import Signin from './comoponents/Signin/Signin';
@@ -22,6 +23,11 @@ function App() {
         <Route path='/Additems' element={
           <RequirdAuth>
             <Additems></Additems>
+          </RequirdAuth>
+        }></Route>
+        <Route path='/manageitems' element={
+          <RequirdAuth>
+            <ManageItems></ManageItems>
           </RequirdAuth>
         }></Route>
         <Route path='/signin' element={<Signin></Signin>}></Route>

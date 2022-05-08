@@ -4,13 +4,27 @@ import './Additems.css';
 
 const Additems = () => {
     const { register, handleSubmit} = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        fetch('http://localhost:5000/foods',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(result=>{
+            console.log(result);
+        })
+    };
+
+    
     return (
         <div className='w-50 mx-auto'>
             <h3 className='addItems'>Add Food Items</h3>
             <form className='add_from' onSubmit={handleSubmit(onSubmit)}>
                 <input placeholder='Name' {...register("name")} /> <br />
-                <textarea className='description' placeholder='Description' {...register("Description")} /> <br />
+                <textarea className='description' placeholder='Description' {...register("description")} /> <br />
                 <input placeholder='Price' type="text" {...register("price")} /> <br />
                 <input placeholder='Quantity' type="text" {...register("quantity")} /> <br />
                 <input placeholder='Img' type="text" {...register("img")} /><br />

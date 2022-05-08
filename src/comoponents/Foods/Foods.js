@@ -13,7 +13,8 @@ const Foods = () => {
         <div className='container my-5 text-center'>
             <h1>Organic Products:{foods.length}</h1>
             <Row className="ms-5">
-                {foods.slice(0,6).map(food=><Food
+                {/* slice(0.6) */}
+                {foods.map(food=><Food
                  key={food._id}
                  food={food}
                 ></Food>)}
