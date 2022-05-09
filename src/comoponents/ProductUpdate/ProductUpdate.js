@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import useUpdate from '../../hooks/useUpdate';
 
 const ProductUpdate = () => {
     const { id } = useParams();
     const { register, handleSubmit } = useForm();
+    const [update]=useUpdate(id);
+    console.log(update);
+
     
     const onSubmit = data => {
         fetch(`http://localhost:5000/foods/${id}`, {
@@ -28,20 +31,15 @@ const ProductUpdate = () => {
         <div className="container">
             <Row>
                 <Col>
-                {/* <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={img} />
+                 <Card className="shadow p-3 mb-5 bg-white rounded my-3" style={{ width: '20rem' }}>
+                <Card.Img variant="top" src={update.img} />
                 <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Text>
-                    Description:{description}
-                    </Card.Text>
-                    <p>Price:{price}</p>
-                    <p>Quantity:{quantity}</p>
-                    <p>Supplier:{supplier}</p>
-                    
-                    <Link to={`/updateitems/${_id}`} variant="primary" >Update</Link>
+                    <Card.Title>{update.name}</Card.Title>
+                    <p>Price:{update.price}</p>
+                    <p>Quantity:{update.quantity}</p>
+                    <p>Supplier:{update.supplier}</p>
                 </Card.Body>
-            </Card> */}
+            </Card> 
 
                 </Col>
                 <Col>
