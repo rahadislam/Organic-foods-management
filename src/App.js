@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Additems from './comoponents/Additems/Additems';
+import Blog from './comoponents/Blog/Blog';
 import Footer from './comoponents/Footer/Footer';
 import Header from './comoponents/Header/Header';
 import Home from './comoponents/Home/Home';
@@ -44,6 +45,7 @@ function App() {
         }></Route>
         <Route path='/signin' element={<Signin></Signin>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/blogs' element={<Blog></Blog>}></Route>
 
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>

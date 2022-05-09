@@ -1,16 +1,10 @@
-import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import useFoods from '../../hooks/useFoods';
 
 const Myitems = () => {
-    const [foods]=useFoods();
-    
-    
+    const [foods]=useFoods(); 
     const [user] = useAuthState(auth);
-    const handelDeleverd=(id)=>{
-
-    }
 
     return (
         <div>
@@ -35,9 +29,9 @@ const Myitems = () => {
                             <td className='py-5'>{food.name}</td>
                             <td className='py-5'>{food.supplier}</td>
                             <td className='py-5'><img src="https://www.pikpng.com/pngl/b/77-772704_low-cost-icon-cheap-price-icon-clipart.png" height={20} alt="" /> {food.price}</td>
-                            <td className='py-5'>{food.quantity}</td>
+                            <td className='py-5'></td>
 
-                            <td className='catalog'><img src={food.img} height={100} width={100} alt="" /> <button onClick={()=>handelDeleverd(food._id)}>Delever</button></td>
+                            <td className='catalog'><img src={food.img} height={100} width={100} alt="" /></td>
                         </tr>)
                     }
                     

@@ -6,7 +6,7 @@ const UpdateFashion = () => {
     const { id } = useParams();
     const [fashion, setFashion] = useState({});
     useEffect(() => {
-        const url = http://localhost:5000/service/${id};
+        const url = `http://localhost:5000/service/${id};`
         // console.log("url ", url)
         fetch(url)
             .then(res => res.json())
