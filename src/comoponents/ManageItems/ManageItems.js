@@ -1,13 +1,26 @@
 import React from 'react';
 import useFoods from '../../hooks/useFoods';
-import Manags from './Manags/Manags';
+import './ManageItems.css';
 
 const ManageItems = () => {
-    const [foods]=useFoods();
+    const [foods,setfoods]=useFoods();
+    const handelDelete=(id)=>{
+        const url=(`http://localhost:5000/foods/${id}`);
+        fetch(url,{
+            method:'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            const uiUpdate=foods.filter(fd=>fd._id !== id);
+            setfoods(uiUpdate);
+            console.log(data);
+        })
+
+    }
     return (
         <div>
             <h1>Manage Items {foods.length}</h1>
-            <table class="table table-hover table-light table-responsive">
+            <table className="table table-hover table-light table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -21,10 +34,14 @@ const ManageItems = () => {
                 </thead>
                 <tbody>
                     {
-                        foods.map(food=><Manags 
-                        key={food._id}
-                        food={food}
-                        ></Manags>)
+                        foods.map(food=><tr key={food._id}>
+                            <td className='py-5'>{food._id}</td>
+                            <td className='py-5'>{food.name}</td>
+                            <td className='py-5'>{food.supplier}</td>
+                            <td className='py-5'><img src="https://www.pikpng.com/pngl/b/77-772704_low-cost-icon-cheap-price-icon-clipart.png" height={20} alt="" /> {food.price}</td>
+                            <td className='py-5'>{food.quantity}</td>
+                            <td className='catalog'><img src={food.img} height={100} width={100} alt="" /> <button className='my-3 mx-3 delete_btn' onClick={()=>handelDelete(food._id)}>Delete</button></td>
+                        </tr>)
                     }
                     
                 </tbody>

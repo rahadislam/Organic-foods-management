@@ -40,3 +40,18 @@
     color:orange;
     opacity: 0.5;
 }
+.update_btn{
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    background-color: orange;
+    transition: 0.5s;
+}
+.update_btn:hover{
+    
+    color: wheat;
+    background-color: orangered;
+}

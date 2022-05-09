@@ -6,6 +6,7 @@ import Header from './comoponents/Header/Header';
 import Home from './comoponents/Home/Home';
 import ManageItems from './comoponents/ManageItems/ManageItems';
 import PageNotFound from './comoponents/PageNotFound/PageNotFound';
+import ProductUpdate from './comoponents/ProductUpdate/ProductUpdate';
 import RequirdAuth from './comoponents/RequirdAuth/RequirdAuth';
 import Signin from './comoponents/Signin/Signin';
 import SignUp from './comoponents/SignUp/SignUp';
@@ -30,12 +31,17 @@ function App() {
             <ManageItems></ManageItems>
           </RequirdAuth>
         }></Route>
+        <Route path='/updateitems/:id' element={
+          <RequirdAuth>
+            <ProductUpdate></ProductUpdate>
+          </RequirdAuth>
+        }></Route>
         <Route path='/signin' element={<Signin></Signin>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
 
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
-      {/* <Footer></Footer> */}
+      <Footer></Footer> 
     </div>
   );
 }

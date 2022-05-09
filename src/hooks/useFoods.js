@@ -7,7 +7,7 @@ const useFoods = () => {
         .then(res=>res.json())
         .then(data=>setfoods(data));
     },[]);
-    return [foods];
+    return [foods,setfoods];
 };
 
 export default useFoods;
