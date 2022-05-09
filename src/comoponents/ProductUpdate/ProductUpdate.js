@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
@@ -8,7 +9,7 @@ const ProductUpdate = () => {
     const { register, handleSubmit } = useForm();
     const [update]=useUpdate(id);
     console.log(update);
-
+    
     
     const onSubmit = data => {
         fetch(`http://localhost:5000/foods/${id}`, {
@@ -29,6 +30,7 @@ const ProductUpdate = () => {
 
     return (
         <div className="container">
+
             <Row>
                 <Col>
                  <Card className="shadow p-3 mb-5 bg-white rounded my-3" style={{ width: '20rem' }}>

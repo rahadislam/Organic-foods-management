@@ -8,9 +8,14 @@ const Foods = () => {
     return (
         <div className='container my-5 text-center'>
             <h1>Organic Products:{foods.length}</h1>
+            {/* {
+                foods && <div className="spinner-border" role="status">
+                <span className="sr-only"></span>
+                </div>
+            } */}
+            
             <Row className="ms-5">
-                {/* slice(0.6) */}
-                {foods.map(food=><Food
+                {foods.slice(0,6).map(food=><Food
                  key={food._id}
                  food={food}
                 ></Food>)}

@@ -22,12 +22,21 @@ const Header = () => {
                         <Nav className="mx-auto fs-5 text-drak"> 
                         <Nav.Link as={Link} to='/home'>Home</Nav.Link>
                         <Nav.Link as={Link} to='/home'>Blogs</Nav.Link>
-                        <Nav.Link as={Link} to='/manageitems'>Manage Items</Nav.Link>
+                        {
+                            user && <Nav.Link as={Link} to='/manageitems'>Manage Items</Nav.Link>
+                        }
+                        
                         <Navbar.Brand as={Link} to='/home'>
                             <img height={40} src={Brand} alt="" />
                         </Navbar.Brand>
-                            <Nav.Link as={Link} to='/Additems'>Add Item</Nav.Link>
-                            <Nav.Link as={Link} to='/myitems'>My Items</Nav.Link>
+                        {
+                            user && <Nav.Link as={Link} to='/Additems'>Add Item</Nav.Link>
+                        }
+                            
+                            {
+                                user && <Nav.Link as={Link} to='/myitems'>My Items</Nav.Link> 
+                            }
+                            
                             {
                                 user ? <Nav.Link as={Link} to='/signin' onClick={handleSignOut}>Sign Out</Nav.Link>
                                 :
