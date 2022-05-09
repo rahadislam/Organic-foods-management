@@ -1,17 +1,18 @@
 import React from 'react';
 import { Button, Form,Row,Col } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Signin.css';
 
 const Signin = () => {
+    const location=useLocation();
     const [signInWithEmailAndPassword, user,error,] = useSignInWithEmailAndPassword(auth);
-    
+    let from = location.state?.from?.pathname || "/";
     const [signInWithGoogle,user1] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
     if(user || user1){
-        navigate('/home')
+        navigate(from, { replace: true });
     }
 
     const handelfrom=(event)=>{

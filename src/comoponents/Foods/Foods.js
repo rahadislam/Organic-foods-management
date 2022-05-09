@@ -7,7 +7,7 @@ const Foods = () => {
     
     return (
         <div className='container my-5 text-center'>
-            <h1>Organic Products:{foods.length}</h1>
+            <h1>Organic Products</h1>
             {/* {
                 foods && <div className="spinner-border" role="status">
                 <span className="sr-only"></span>

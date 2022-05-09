@@ -11,15 +11,19 @@ const ManageItems = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            const uiUpdate=foods.filter(fd=>fd._id !== id);
-            setfoods(uiUpdate);
+            if(window.confirm("Are you sure?")){
+                const uiUpdate=foods.filter(fd=>fd._id !== id);
+                setfoods(uiUpdate);
+            }
+            
             console.log(data);
+            
         })
 
     }
     return (
         <div>
-            <h1>Manage Items {foods.length}</h1>
+            <h1 className='text-center my-4'>Manage Items</h1>
             <table className="table table-hover table-light table-responsive">
                 <thead>
                     <tr>
